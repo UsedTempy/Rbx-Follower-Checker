@@ -25,9 +25,7 @@ app.get("/IsFollowing/:Id/:hasToFollowId", (req, res) => {
     })
   })
   .catch(error => {
-    res.status(404).json({
-        response: false
-    })
+    res.status(404).json({response: false})
   })
 })
 
