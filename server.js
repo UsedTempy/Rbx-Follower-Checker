@@ -5,7 +5,7 @@ const PORT = 3000;
 
 app.use(express.json())
 
-app.get("/IsFollowing/:Id/:hasToFollowId", (req, res) => {
+app.get("IsFollowing/:Id/:hasToFollowId", (req, res) => {
   const id = req.params.Id
   const hasToFollowId = req.params.hasToFollowId
   var isFollowing = false;
