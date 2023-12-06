@@ -5,19 +5,19 @@ const PORT = 3000;
 
 app.use(express.json())
 
-app.get("/IsFollowing/:Id/:hasToFollowId", (req, res) => {
-  const id = req.params.Id
-  const hasToFollowId = req.params.hasToFollowId
+app.get("/IsFollowing/:UserId/:InputId", (req, res) => {
+  const id = req.params.UserId
+  const InputId = req.params.InputId
   var isFollowing = false;
 
   fetch(`https://friends.roblox.com/v1/users/${id}/followings?limit=100&sortOrder=Desc`)
   .then(res => res.json())
   .then(data => {
     for (let i = 0; i < data.data.length; i++) {
-        if (data.data[i].id == hasToFollowId) {
+        if (data.data[i].id == InputId) {
             isFollowing = true
             break
-        }   
+        }
     }
 
     res.status(200).json({
