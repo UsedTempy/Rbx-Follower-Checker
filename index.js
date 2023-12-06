@@ -10,7 +10,7 @@ app.get("/IsFollowing/:Id/:hasToFollowId", (req, res) => {
   const hasToFollowId = req.params.hasToFollowId
   var isFollowing = false;
 
-  fetch(`https://friends.roblox.com/v1/users/${id}/followings?limit=101&sortOrder=Desc`)
+  fetch(`https://friends.roblox.com/v1/users/${id}/followings?limit=100&sortOrder=Desc`)
   .then(res => res.json())
   .then(data => {
     for (let i = 0; i < data.data.length; i++) {
@@ -29,4 +29,4 @@ app.get("/IsFollowing/:Id/:hasToFollowId", (req, res) => {
   })
 })
 
-app.listen(PORT, () => console.log(`Server running at https://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`))
